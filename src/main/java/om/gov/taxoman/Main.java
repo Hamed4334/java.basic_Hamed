@@ -1,19 +1,22 @@
 package om.gov.taxoman;
 
+import om.gov.taxoman.entity.Order;
+import om.gov.taxoman.entity.OrderStatus;
+import om.gov.taxoman.entity.Product;
+import om.gov.taxoman.entity.User;
+
+import java.time.LocalDateTime;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Product product = new Product(12, "Phone", "HUAWEI", new String[]{"P30 PRO"}, 550.0);
+        User user = new User(1, "Hamed", "1234", new String[]{"ADMIN"});
+        Product[] products= new Product[1];
+        products[0] = product;
+        Order order = new Order(456, products, LocalDateTime.now(), user, OrderStatus.DELIVERED );
+        System.out.println(order);
     }
 }
